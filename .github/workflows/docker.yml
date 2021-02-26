@@ -1,0 +1,20 @@
+name: Docker Playground
+
+on: push
+
+jobs:
+  hello-virtual-machine:
+    name: Run docker from virtual machine
+    runs-on: ubuntu-latest
+    steps:
+      - run: whoami
+      - run: docker -v
+      - run: docker images
+
+  hello-docker-container:
+    name: Try to run container
+    runs-on: ubuntu-latest
+    container: python:3
+    steps:
+      - run: whoami
+      - run: python --version
