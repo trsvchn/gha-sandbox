@@ -1,2 +1,2 @@
-# gha-sandbox
+# gha sandbox
 GH Actions Sandbox
