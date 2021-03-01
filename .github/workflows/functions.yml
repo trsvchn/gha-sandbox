@@ -11,12 +11,12 @@ jobs:
     - name: Set test env var
       run: | 
         echo "file_list=`ls -m`" >> $GITHUB_ENV
-        echo "${{ env.file_list }}"
+        echo ${{ env.file_list }}
 
     - name: Test success 
-      if: contains(${{ env.file_list }}, 'README.md')
+      if: contains(env.file_list, 'README.md')
       run: echo "README in a file list"
 
     - name: Test failure
-      if: contains(${{ env.file_list }}, 'FILE')
-      run: echo "README in a file list"
+      if: contains(env.file_list, 'FILE')
+      run: echo "File not in a file list"
