@@ -1,0 +1,16 @@
+name: Functions
+
+on: push
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Set test env var
+      run: echo "file_list=`ls -m`" >> $GITHUB_ENV
+
+    - name: Test
+      if: contains(${{ env.file_list }}, 'README.md')
+      run: echo "README in a file list"
