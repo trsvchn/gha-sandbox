@@ -8,15 +8,21 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
 
-    - name: Set test env var
-      run: | 
-        echo "file_list=`ls -am`" >> $GITHUB_ENV
-        echo "${{ env.file_list }}"
+#     - name: Set test env var
+#       run: | 
+#         echo "file_list=`ls -am`" >> $GITHUB_ENV
+#         echo "${{ env.file_list }}"
+
+    - name: Changed Files Exporter
+      id: files
+      uses: futuratrepadeira/changed-files@v3.3.0
+      with:
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Test success 
-      if: contains(env.file_list, 'README.md')
+      if: contains(steps.files.outputs.files_updated, 'README.md')
       run: echo "README in a file list"
 
     - name: Test failure
-      if: contains(env.file_list, 'FILE')
+      if: contains(steps.files.outputs.files_updated, 'FILE')
       run: echo "File not in a file list"
