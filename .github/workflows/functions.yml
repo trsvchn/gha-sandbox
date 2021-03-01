@@ -10,8 +10,8 @@ jobs:
 
     - name: Set test env var
       run: | 
-        echo "file_list=`ls -m`" >> $GITHUB_ENV
-        echo ${{ env.file_list }}
+        echo "file_list=`ls -am`" >> $GITHUB_ENV
+        echo "${{ env.file_list }}"
 
     - name: Test success 
       if: contains(env.file_list, 'README.md')
