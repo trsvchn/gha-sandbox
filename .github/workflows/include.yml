@@ -14,3 +14,15 @@ jobs:
             class: b
     steps:
       - run: echo "${{ matrix.type }} ${{ matrix.class }}"
+
+  job2:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        include:
+          - type: B
+            class: b
+          - type: B
+            class: c
+    steps:
+      - run: echo "${{ matrix.type }} ${{ matrix.class }}"
