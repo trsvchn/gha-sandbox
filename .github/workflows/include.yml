@@ -9,6 +9,8 @@ jobs:
       matrix:
         include:
           - type: A
-            class: B
+            class: a
+          - type: A
+            class: b
     steps:
       - run: echo "${{ matrix.type }} ${{ matrix.class }}"
