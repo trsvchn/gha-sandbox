@@ -1,0 +1,13 @@
+name: Matrix with Include
+
+on: [push]
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        include:
+          - type: A
+            class: B
+    steps:
+      run: echo "${{ matrix.type }} ${{ matrix.class }}"
