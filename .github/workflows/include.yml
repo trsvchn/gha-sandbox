@@ -7,11 +7,13 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        include:
-          - type: A
-            class: a
-          - type: A
-            class: b
+        type: [A]
+        class: ["a", "b"]
+#         include:
+#           - type: A
+#             class: a
+#           - type: A
+#             class: b
     steps:
       - run: echo "${{ matrix.type }} ${{ matrix.class }}"
 
@@ -19,10 +21,13 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        include:
-          - type: B
-            class: b
-          - type: B
-            class: c
+        type: [B]
+        class: ["b", "c"]
+
+#         include:
+#           - type: B
+#             class: b
+#           - type: B
+#             class: c
     steps:
       - run: echo "${{ matrix.type }} ${{ matrix.class }}"
