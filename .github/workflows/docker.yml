@@ -9,7 +9,7 @@ jobs:
     steps:
       - run: whoami
       - run: docker -v
-      - run: docker images
+      - run: docker images -a
 
   hello-docker-container:
     name: Try to run container
