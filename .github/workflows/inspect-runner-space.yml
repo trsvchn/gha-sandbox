@@ -8,6 +8,8 @@ jobs:
     steps:
       - name: Check default space
         run: df -h --total --output=source,size,used,avail | grep -E "Filesystem|total"
+      - name: Get list of installed packages
+        run: $ dpkg-query --show --showformat='${Installed-Size}\t${Package}\n' | sort -rh | head -25 | awk '{print $1/1024, $2}'
       - name: Check apt cache
         run: sudo du -sh /var/cache/apt
       - name: autoremove
