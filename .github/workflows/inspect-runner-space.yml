@@ -14,6 +14,12 @@ jobs:
           dpigs -H -n 50
       - name: Check apt cache
         run: sudo du -sh /var/cache/apt
+      - name: Remove smth
+        run: | 
+          sudo rm -rf "/usr/local/share/boost"
+          sudo rm -rf "$AGENT_TOOLSDIRECTORY"
+      - name: Check space
+        run: df -h --total --output=source,size,used,avail | grep -E "Filesystem|total"
       - name: autoremove
         run: sudo apt-get autoremove -y
       - name: Check space
