@@ -1,0 +1,12 @@
+name: Inspect runner total and free space
+
+on: [push]
+
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check default space
+        run: df -h --total --output=source,size,used,avail | grep -E "Filesystem|total"
+      - name: Check apt cache
+        run: du -sh /var/cache/apt
