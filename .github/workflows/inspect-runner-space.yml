@@ -1,4 +1,4 @@
-name: Inspect runner total and free space
+name: Inspect runner
 
 on: [push]
 
@@ -10,3 +10,5 @@ jobs:
         run: df -h --total --output=source,size,used,avail | grep -E "Filesystem|total"
       - name: Check apt cache
         run: du -sh /var/cache/apt
+      - name: Check thumbnail cache 
+        run: du -sh ~/.cache/thumbnails
