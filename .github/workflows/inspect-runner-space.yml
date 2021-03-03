@@ -33,6 +33,8 @@ jobs:
       - name: Check space
         run: df -h --total --output=source,size,used,avail | grep -E "Filesystem|total"
       
+      - name: Docker info
+        run: docker info
       - name: Docker list
         run: docker images -a
       - name: Remove some docker images
