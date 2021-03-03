@@ -38,7 +38,7 @@ jobs:
       - name: Docker config
         run: |
           sudo service docker stop
-          rm -rvf /var/lib/docker
+          sudo rm -rvf /var/lib/docker
           sudo dockerd --storage-opt dm.basesize=20G
           sudo service docker start
           docker info
