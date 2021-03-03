@@ -39,3 +39,10 @@ jobs:
         run: docker rmi `docker images -f "before=node:10-alpine" -q` | echo "Status code $?"
       - name: Docker list
         run: docker images -a
+        
+      - name: Remove some packages
+        run: |
+          sudo apt-get remove firefox google-chrome-stable -y
+          sudo apt-get autoremove -y
+      - name: Check space
+        run: df -h --total --output=source,size,used,avail | grep -E "Filesystem|total"
