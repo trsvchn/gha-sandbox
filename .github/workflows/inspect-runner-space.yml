@@ -33,21 +33,17 @@ jobs:
       - name: Check space
         run: df -h --total --output=source,size,used,avail | grep -E "Filesystem|total"
       
-      - name: Docker info
-        run: docker info
-      - name: Docker config
-        run: |
-          sudo service docker stop
-          sudo rm -rvf /var/lib/docker
-          sudo dockerd --storage-opt dm.basesize=20G
-          sudo service docker start
-          docker info
       - name: Docker list
         run: docker images -a
       - name: Remove some docker images
         run: docker rmi `docker images -f "before=node:10-alpine" -q` | echo "Status code $?"
       - name: Docker list
         run: docker images -a
+        
+      - name: Docker prune
+        run: |
+          docker system prune --all --force
+          docker system prune --all --force --volumes
         
       - name: Remove some packages
         run: |
