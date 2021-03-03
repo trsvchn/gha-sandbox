@@ -10,7 +10,7 @@ jobs:
         run: df -h --total --output=source,size,used,avail | grep -E "Filesystem|total"
       - name: Get list of installed packages
         run: |
-          sudo apt-get install debian-goodies
+          sudo apt-get install debian-goodies -y
           dpigs -H -n 50
       - name: Check apt cache
         run: sudo du -sh /var/cache/apt
