@@ -32,3 +32,10 @@ jobs:
         run: sudo apt-get clean -y
       - name: Check space
         run: df -h --total --output=source,size,used,avail | grep -E "Filesystem|total"
+      
+      - name: Docker list
+        run: docker images -a
+      - name: Remove some docker images
+        run: echo `docker rmi `docker images -f "before=pytorchignite/msdp-apex-nlp" -q``
+      - name: Docker list
+        run: docker images -a
