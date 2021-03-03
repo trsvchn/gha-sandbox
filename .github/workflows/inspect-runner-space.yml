@@ -36,6 +36,6 @@ jobs:
       - name: Docker list
         run: docker images -a
       - name: Remove some docker images
-        run: echo `docker rmi ${docker images -f "before=node/10-alpine" -q}`
+        run: docker rmi `docker images -f "before=pytorchignite/msdp-apex-nlp" -q` | echo "Status code $?"
       - name: Docker list
         run: docker images -a
