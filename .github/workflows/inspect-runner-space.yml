@@ -11,14 +11,14 @@ jobs:
       - name: Check apt cache
         run: sudo du -sh /var/cache/apt
       - name: autoremove
-        run: sudo apt-get autoremove
+        run: sudo apt-get autoremove -y
       - name: Check space
         run: df -h --total --output=source,size,used,avail | grep -E "Filesystem|total"
       - name: autoclean
-        run: sudo apt-get autoclean
+        run: sudo apt-get autoclean  -y
       - name: Check space
         run: df -h --total --output=source,size,used,avail | grep -E "Filesystem|total"
       - name: clean
-        run: sudo apt-get clean
+        run: sudo apt-get clean -y
       - name: Check space
         run: df -h --total --output=source,size,used,avail | grep -E "Filesystem|total"
