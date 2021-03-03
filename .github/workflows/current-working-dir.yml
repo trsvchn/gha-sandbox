@@ -1,0 +1,17 @@
+name: Current Working Dir
+
+on: [push]
+
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create test dir
+        run |
+          pwd
+          mkdir tests
+          cd tests
+          pwd
+      - name: Check cwd
+        run: |
+          pwd          
