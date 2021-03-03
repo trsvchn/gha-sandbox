@@ -36,6 +36,6 @@ jobs:
       - name: Docker list
         run: docker images -a
       - name: Remove some docker images
-        run: docker rmi `docker images -f "before=node/10-alpine" -q` | echo "Status code $?"
+        run: docker rmi `docker images -f "before=node:10-alpine" -q` | echo "Status code $?"
       - name: Docker list
         run: docker images -a
