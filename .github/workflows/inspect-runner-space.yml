@@ -35,6 +35,13 @@ jobs:
       
       - name: Docker info
         run: docker info
+      - name: Docker config
+        run: |
+          sudo service docker stop
+          rm -rvf /var/lib/docker
+          sudo dockerd --storage-opt dm.basesize=20G
+          sudo service docker start
+          docker info
       - name: Docker list
         run: docker images -a
       - name: Remove some docker images
