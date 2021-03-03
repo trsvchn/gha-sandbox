@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Create test dir
-        run |
+        run: |
           pwd
           mkdir tests
           cd tests
