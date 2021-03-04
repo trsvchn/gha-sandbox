@@ -4,7 +4,7 @@ on: [push]
 
 jobs:
   job1:
-    if: github.event == 'push'
+    if: github.event_name == 'release'
     runs-on: ubuntu-latest
     steps:
       - name: Say Hi 1
