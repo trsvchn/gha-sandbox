@@ -6,9 +6,11 @@ jobs:
   job1:
     runs-on: ubuntu-latest
     steps:
-      - if: github.event_name == 'push'
+      - name: Step 1
+        if: github.event_name == 'push'
         run: echo "Hello from job1 on push"
-      - if: github.event_name == 'release'
+      - name: Step 2
+        if: github.event_name == 'release'
         run: echo "Hello from job1 on release"
         
       
