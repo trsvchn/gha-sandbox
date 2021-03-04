@@ -4,12 +4,14 @@ on: [push]
 
 jobs:
   job1:
-    if: github.event_name == 'release'
     runs-on: ubuntu-latest
     steps:
-      - name: Say Hi 1
-        run: echo "Hello from job1"
+      - if: github.event_name == 'push'
+        run: echo "Hello from job1 on push"
+      - if: github.event_name == 'release'
+        run: echo "Hello from job1 on release"
         
+      
   job2:
     needs: job1
     runs-on: ubuntu-latest
