@@ -1,0 +1,12 @@
+name: Set env var
+
+on: [push]
+
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set 
+        run: export FOOBAR=42
+      - name: Retrieve
+        run: echo $FOOBAR
