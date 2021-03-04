@@ -6,6 +6,8 @@ jobs:
   job1:
     runs-on: ubuntu-latest
     steps:
+      - name: Print var
+        run: echo $AGENT_TOOLSDIRECTORY
       - name: Set 
         run: |
           export FOOBAR=42
