@@ -1,4 +1,4 @@
-name: Set env var
+name: Skip trigger
 
 on: [push]
 
