@@ -1,3 +1,2 @@
 docs:
-  - "(docs|Docs)"
-  - "(documentation|Documentation)"
+  - "(docs|Docs|documentation|Documentation)"
