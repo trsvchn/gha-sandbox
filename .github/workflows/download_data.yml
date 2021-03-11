@@ -1,0 +1,19 @@
+name: Download data
+
+on: [push]
+
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Ls
+        run: ls
+
+      - name: Get data
+        uses: trsvchn/storage-action@main
+
+      - name: Ls
+        run: ls
