@@ -17,3 +17,6 @@ jobs:
 
       - name: Ls
         run: ls
+
+      - name: REad file
+        run: cat copy_this.file
