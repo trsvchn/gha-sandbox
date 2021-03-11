@@ -1,0 +1,22 @@
+name: Download data
+
+on: [push]
+
+jobs:
+  job1:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Ls
+        run: ls
+
+      - name: Get data
+        uses: pytorch-ignite/download-mnist-github-action@master
+
+      - name: Ls
+        run: ls ./MNIST/raw
+
+      - name: REad file
+        run: cat ./MNIST/raw/copy_this.file
