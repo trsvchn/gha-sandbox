@@ -1,4 +1,4 @@
-name: Download data
+name: Download MNIST
 
 on: [push]
 
@@ -17,6 +17,3 @@ jobs:
 
       - name: Ls
         run: ls ./MNIST/raw
-
-      - name: REad file
-        run: cat ./MNIST/raw/copy_this.file
