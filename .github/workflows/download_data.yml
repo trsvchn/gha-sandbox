@@ -16,7 +16,7 @@ jobs:
         uses: trsvchn/storage-action@main
 
       - name: Ls
-        run: ls
+        run: ls ./MNIST/raw
 
       - name: REad file
-        run: cat copy_this.file
+        run: cat ./MNIST/raw/copy_this.file
