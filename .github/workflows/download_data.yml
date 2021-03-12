@@ -8,15 +8,13 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-
       - name: Ls
         run: ls
-
       - name: Get data
         uses: trsvchn/storage-action@main
-
+        with:
+          target_dir: ./foo/bar
       - name: Ls
-        run: ls ./MNIST/raw
-
+        run: ls ./foo/bar
       - name: REad file
-        run: cat ./MNIST/raw/copy_this.file
+        run: cat ./foo/bar/copy_this.file
