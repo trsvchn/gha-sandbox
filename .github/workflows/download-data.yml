@@ -11,7 +11,7 @@ jobs:
       - name: Ls
         run: ls
       - name: Get data
-        uses: trsvchn/storage-action@main
+        uses: trsvchn/storage-action@dev
         with:
           target_dir: ./foo/bar
       - name: Ls
