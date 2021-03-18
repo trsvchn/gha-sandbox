@@ -1,0 +1,14 @@
+name: Conditions
+
+on: [push]
+
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Step 1
+        if: github.event_name == 'pull_request'
+        run: echo "Hello from job1 on push"
+
+      - name: Step 2
+        run: echo "Hello from job1 on release"
