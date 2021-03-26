@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Install prerequisites
-        run: sudo apt-get install locate -y
+        run: sudo apt-get update && sudo apt-get install mlocate -y
       
       - name: Which
         run: which python
@@ -24,4 +24,6 @@ jobs:
         run: pip install mkl
         
       - name: Locate
-        run: locate libmkl_intel_lp64.so
+        run: |
+          sudo updatedb
+          locate libmkl_intel_lp64.so
