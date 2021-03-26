@@ -6,6 +6,9 @@ jobs:
   job1:
     runs-on: ubuntu-latest
     steps:
+      - name: Install prerequisites
+        run: apt-get install locate -y
+      
       - name: Which
         run: which python
 
