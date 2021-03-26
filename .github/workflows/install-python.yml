@@ -16,3 +16,9 @@ jobs:
 
       - name: which python
         run: which python
+      
+      - name: Install mkl
+        run: pip install mkl
+        
+      - name: Locate
+        run: locate libmkl_intel_lp64.so
