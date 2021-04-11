@@ -26,6 +26,7 @@ jobs:
           git clone https://github.com/pytorch/ignite.git
 
       - name: Run tests
+        shell: bash -l {0}
         run: |
           cd ignite
           SKIP_DISTRIB_TESTS=1 bash tests/run_cpu_tests.sh
