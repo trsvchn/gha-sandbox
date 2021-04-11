@@ -28,5 +28,6 @@ jobs:
         shell: bash -l {0}
         run: |
           cd ignite
+          git checkout 0.4.4
           pip install -r requirements-dev.txt
           SKIP_DISTRIB_TESTS=1 bash tests/run_cpu_tests.sh
