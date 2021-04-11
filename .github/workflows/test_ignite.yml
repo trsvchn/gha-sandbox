@@ -17,7 +17,7 @@ jobs:
           python-version: "3.7.7"
 
       - name: Install Ignite
-        run: python -m pip install ignite==0.4.4
+        run: pip install pytorch-ignite==0.4.4
 
       - name: Run test
         run: python test_metric.py
