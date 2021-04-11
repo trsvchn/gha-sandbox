@@ -1,0 +1,23 @@
+name: Run PyTorch-Ignite
+
+on:
+  push
+    branches:
+      - ignite-issue-1929
+
+jobs:
+  job1:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - uses: actions/setup-python@v2
+        with:
+          python-version: "3.7.7"
+
+      - name: Install Ignite
+        run: python -m pip install ignite==0.4.4
+
+      - name: Run test
+        run: python test_metric.py
