@@ -7,7 +7,7 @@ on:
 
 jobs:
   job1:
-    runs-on: windows-2019
+    runs-on: windows-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -17,7 +17,15 @@ jobs:
           python-version: "3.7.7"
 
       - name: Install Ignite
-        run: pip install pytorch-ignite==0.4.4
+        run: |
+          pip install -r requirements-dev.txt
+          pip install pytorch-ignite==0.4.4
 
-      - name: Run test
-        run: python test_metric.py
+      - name: Get tests
+        run: |
+          git clone https://github.com/pytorch/ignite.git
+
+      - name: Run tests
+        run: |
+          cd ignite
+          SKIP_DISTRIB_TESTS=1 bash tests/run_cpu_tests.sh
