@@ -18,7 +18,6 @@ jobs:
 
       - name: Install Ignite
         run: |
-          pip install -r requirements-dev.txt
           pip install pytorch-ignite==0.4.4
 
       - name: Get tests
@@ -29,4 +28,5 @@ jobs:
         shell: bash -l {0}
         run: |
           cd ignite
+          pip install -r requirements-dev.txt
           SKIP_DISTRIB_TESTS=1 bash tests/run_cpu_tests.sh
